@@ -154,10 +154,3 @@ class TuringMachine:
         self.run()
         elapsed_time = time.time() - start_time
         print(f"Tiempo de ejecución: {elapsed_time:.6f} segundos")
-
-machine = TuringMachine("./assets/fibonacci_json.json")
-
-machine.set_input('11')
-machine.run()
-print("Resultado en la cinta:", machine.get_output())
-print("Ultimo valor en la cinta:", machine.get_last_value())
