@@ -1,4 +1,5 @@
 import json
+import time
 
 class TuringMachine:
     def __init__(self, config_file):
@@ -147,7 +148,12 @@ class TuringMachine:
                 raise ValueError("No es un número binario válido")
             decimal = decimal * 2 + int(digit)
         return -decimal if negative else decimal
-    
+    def run_with_timer(self):
+        """Ejecuta la máquina y mide el tiempo de ejecución."""
+        start_time = time.time()
+        self.run()
+        elapsed_time = time.time() - start_time
+        print(f"Tiempo de ejecución: {elapsed_time:.6f} segundos")
 
 machine = TuringMachine("./assets/fibonacci_json.json")
 
