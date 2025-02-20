@@ -122,6 +122,32 @@ class TuringMachine:
         tape_str = "".join(self.tape).strip(self.blank_symbol)
         numbers = [num for num in tape_str.split("#") if num.isdigit() and len(num) > 0]
         return numbers[-1] if numbers else "0"
+    
+    def decimal_to_binary(self, decimal):
+        """Convierte un número decimal en binario."""
+        if decimal < 0:
+            return "-" + TuringMachine.decimal_to_binary(-decimal)
+        if decimal == 0:
+            return "0"
+        result = ""
+        while decimal > 0:
+            result = str(decimal % 2) + result
+            decimal = decimal // 2
+        return result
+    
+    def binary_to_decimal(self, binary):
+        """Convierte un número binario en decimal."""   
+        negative = False
+        if binary[0] == "-":
+            negative = True
+            binary = binary[1:]
+        decimal = 0
+        for digit in binary:
+            if digit not in "01":
+                raise ValueError("No es un número binario válido")
+            decimal = decimal * 2 + int(digit)
+        return -decimal if negative else decimal
+    
 
 machine = TuringMachine("./assets/fibonacci_json.json")
 
