@@ -19,7 +19,7 @@ def main():
             print("Entrada no valida. Por favor, ingrese un numero entero.")
     
     # Convertir de decimal a binario
-    machine = TuringMachine("../assets/fibonacci_json.json")
+    machine = TuringMachine("./assets/fibonacci_json.json")
     binary_input = machine.decimal_to_binary(decimal_input)
     print(f"Numero en binario: {binary_input}")
     
