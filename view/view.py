@@ -33,7 +33,7 @@ def main():
     
     # Convertir de binario a decimal
     decimal_output = machine.binary_to_decimal(binary_output)
-    print(f"El Fibonacci de {decimal_input} es: {decimal_output}")
+    print(f"El Fibonacci de {decimal_input if decimal_input < 501 else 500} es: {decimal_output}")
     
 if __name__ == "__main__":
     main()

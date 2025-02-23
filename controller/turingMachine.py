@@ -34,6 +34,11 @@ class TuringMachine:
         """
         self.target_terms = int(input_bin, 2)  # Convertir binario a decimal
 
+        # Aplicar límite de 500 términos
+        if self.target_terms > 500:
+            print(f"Limite de 500 alcanzado. Se calculara Fibonacci de 500 en lugar de {self.target_terms}.")
+            self.target_terms = 500  
+
         # Casos base
         if self.target_terms == 0:
             self.tape[self.head_position] = "0"
@@ -66,6 +71,10 @@ class TuringMachine:
             return  
 
         while self.term_count < self.target_terms:
+            if self.term_count >= 500:
+                print("Limite de 500 terminos alcanzado. Se detiene la ejecucion.")
+                break
+
             num1, num2 = self.find_last_two_numbers()
             new_fib = self.binary_addition(num1, num2)
 
@@ -148,6 +157,7 @@ class TuringMachine:
                 raise ValueError("No es un número binario válido")
             decimal = decimal * 2 + int(digit)
         return -decimal if negative else decimal
+    
     def run_with_timer(self):
         """Ejecuta la máquina y mide el tiempo de ejecución."""
         start_time = time.time()
