@@ -33,6 +33,11 @@ class TuringMachine:
         Maneja los casos base: 0 -> 0, 1 -> 1, 2 -> 1.
         """
         self.target_terms = int(input_bin, 2)  # Convertir binario a decimal
+         # Reinicio explícito de los atributos críticos
+        self.current_state = self.initial_state
+        self.term_count = 2
+        self.tape = [self.blank_symbol] * 1000
+        self.head_position = 500
 
         # Aplicar límite de 500 términos
         if self.target_terms > 500:
@@ -164,3 +169,4 @@ class TuringMachine:
         self.run()
         elapsed_time = time.time() - start_time
         print(f"Tiempo de ejecución: {elapsed_time:.6f} segundos")
+        return elapsed_time
