@@ -1,4 +1,4 @@
-# Projecto 1 Machiquina de Turing con Fibonacci 🔄
+# Projecto 1 Maquina de Turing con Fibonacci 🔄
 
 ## Descripción 📝
 El proyecto calcula la sucesión de Fibonacci utilizando la máquina de Turing cargado en un JSON. 🎥 Para una demostración, mira este [video demo](https://www.youtube.com/shorts/ZLqXVzUvGTI).
